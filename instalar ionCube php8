@@ -1,0 +1,19 @@
+#instalar ionCuber para php8
+
+yum remove php -y 
+dnf install epel-release
+dnf install http://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf install dnf-utils
+dnf module reset php
+ 
+dnf module install php:remi-8.1
+wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+tar xvf ioncube_loaders_lin_x86-64.tar.gz
+ 
+cp /root/ioncube/ioncube_loader_lin_8.1.so /usr/lib64/php/modules/ioncube_loader_lin_8.1.so
+ 
+ 
+nano /etc/php.ini
+zend_extension = /usr/lib64/php/modules/ioncube_loader_lin_8.1.so
+ 
+php -v
