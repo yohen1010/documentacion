@@ -1,0 +1,12 @@
+#instalar ionCube php7
+para php 7, 
+solo cambia:
+dnf module install php:remi-7.4
+y:
+wget https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+tar xvf ioncube_loaders_lin_x86-64.tar.gz
+ 
+cp /root/ioncube/ioncube_loader_lin_7.2.so /usr/lib64/php/modules/ioncube_loader_lin_7.2.so
+ 
+nano /etc/php.ini
+zend_extension = /usr/lib64/php/modules/ioncube_loader_lin_7.2.so
